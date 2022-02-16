@@ -1,14 +1,14 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from PyQt5 import uic
 from PyQt5.uic import loadUi
 import cv2
 import numpy as np
+from PyQt5 import uic
 import qimage2ndarray
 
 # 6장 25페이지 예제 6.3.3 히스토그램 그래프 그리기 - 09.draw_histogram.py
-# 심화예제 27페이지 6.3.4 색상 히스토그램 그리기 - hue_histogram.py
+# 심화예제 27페이지 6.3.4 색상 히스토그램 그리기 - 10.hue_histogram.py
 
 
 class CameraHist(QWidget):
@@ -51,10 +51,10 @@ class CameraHist(QWidget):
         # qimg = qimg.convertToFormat(QImage.Format_RGB32)
         # qimg = qimg.convertToFormat(QImage.Format_RGB888)
         h, w = qimg.height(), qimg.width()
-        print(h,w)
+        # print(h,w)   #밑에 계속 뜨는거 잠시 안나오게 했음.
         ptr = qimg.constBits()
         ptr.setsize(h * w * 4)
-        print(h, w, ptr)
+        # print(h, w, ptr)
         return np.frombuffer(ptr, np.uint8).reshape(h, w, 4)  # Copies the data
         #return np.array(ptr).reshape(h, w, 3).astype(np.uint8)  #  Copies the data
 

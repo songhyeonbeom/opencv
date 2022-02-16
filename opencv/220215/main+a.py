@@ -25,6 +25,7 @@ class Thread(QThread):
     changePixmapGray = pyqtSignal(QImage)
     changeHist = pyqtSignal(QImage)
 
+
     def run(self):
         global cap
         cap = cv2.VideoCapture(2)
@@ -49,6 +50,7 @@ class Thread(QThread):
 
     def test(self):
         pass
+
 
 class WindowClass(QMainWindow):
     def __init__(self):
@@ -86,9 +88,9 @@ class WindowClass(QMainWindow):
         self.stackedWidget.insertWidget(5, gitacolorview)
         # self.stackedWidget.insertWidget(5, GTCForm(self))
 
-        edgeview = EDGEForm(self)
-        self.stackedWidget.insertWidget(6, edgeview)
-        # self.stackedWidget.insertWidget(6, EDGEForm(self))
+        # edgeview = EDGEForm(self)
+        # self.stackedWidget.insertWidget(6, edgeview)
+        self.stackedWidget.insertWidget(6, EDGEForm(self, self.th))
 
         # camerahistview = CameraHist(self, self.th)
         # self.stackedWidget.insertWidget(7, camerahistview)
