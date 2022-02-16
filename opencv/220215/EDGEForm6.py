@@ -26,7 +26,6 @@ class EDGEForm(QWidget):
 
     def setImage(self, image):
         self.cameraview.setPixmap(QPixmap.fromImage(image))
-        
 
     def differential(image, data1, data2):
         mask1 = np.array(data1, np.float32).reshape(3, 3)
@@ -40,7 +39,6 @@ class EDGEForm(QWidget):
         dst1 = cv2.convertScaleAbs(dst1)
         dst2 = cv2.convertScaleAbs(dst2)
         return dst, dst1, dst2
-
 
 
     def RobertsBtn(self):
@@ -61,6 +59,17 @@ class EDGEForm(QWidget):
     def ch02MB(self):
         pass
 
+
+image = cv2.imread("images/edge.jpg", cv2.IMREAD_GRAYSCALE)
+if image is None: raise Exception("영상파일 읽기 오류")
+
+data1 = [-1, 0, 1,                         # 프리윗 수직 마스크
+         -1, 0, 1,
+         -1, 0, 1]
+data2 = [-1,-1,-1,                         # 프리윗 수평 마스크
+          0, 0, 0,
+          1, 1, 1]
+dst, dst1, dst2 = differential(image, data1, data2)
 
 
 
