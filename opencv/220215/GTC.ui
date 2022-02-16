@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>470</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QSlider" name="HS01">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>280</y>
+     <width>160</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QSlider" name="HS02">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>280</y>
+     <width>160</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button3">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>340</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>사진열기</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label01">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>161</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid blue</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label02">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>30</y>
+     <width>161</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid blue</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>button3</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>display_image()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>209</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>358</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>HS01</sender>
+   <signal>actionTriggered(int)</signal>
+   <receiver>Form</receiver>
+   <slot>onThreshold()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>98</x>
+     <y>291</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>87</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>HS02</sender>
+   <signal>actionTriggered(int)</signal>
+   <receiver>Form</receiver>
+   <slot>onThreshold()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>375</x>
+     <y>288</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>362</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>display_image()</slot>
+  <slot>onThreshold()</slot>
+ </slots>
+</ui>

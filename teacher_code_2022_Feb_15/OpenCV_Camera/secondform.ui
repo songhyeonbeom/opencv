@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>644</width>
+    <height>488</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="orign_image">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>30</y>
+     <width>111</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid red</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="yax">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>80</y>
+     <width>51</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Y축</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="yax_image">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>30</y>
+     <width>111</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid red</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="xax_image">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>190</y>
+     <width>111</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid red</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="xax">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>160</y>
+     <width>51</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>X축</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tax_image">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>180</y>
+     <width>111</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid red</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="tax">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>160</y>
+     <width>51</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>전치</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="imageRead">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>330</y>
+     <width>121</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>사진읽어 오기</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>330</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>창닫기</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>imageRead</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>image_read()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>247</x>
+     <y>342</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>413</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>yax</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>yax_flip()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>266</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>278</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>xax</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>xax_flip()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>97</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tax</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>tax_flip()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>277</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>283</x>
+     <y>220</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>image_read()</slot>
+  <slot>yax_flip()</slot>
+  <slot>xax_flip()</slot>
+  <slot>tax_flip()</slot>
+ </slots>
+</ui>

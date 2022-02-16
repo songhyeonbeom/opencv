@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>-10</y>
+      <width>791</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QGraphicsView" name="graphicsView">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>190</y>
+        <width>256</width>
+        <height>192</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="graychangebtn">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>550</y>
+        <width>89</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>변환</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="grayvideo">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>30</y>
+        <width>131</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid red</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>30</y>
+        <width>191</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="matvbox"/>
+     </widget>
+     <widget class="QLabel" name="originvideo">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>151</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid blue</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="cameraopen">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>170</y>
+        <width>89</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="imageshow">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>151</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid red</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="graychange">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>230</y>
+        <width>141</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid red</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="imgopen">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>560</y>
+        <width>89</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>열기</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2"/>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu5">
+    <property name="title">
+     <string>5장예제</string>
+    </property>
+    <addaction name="action5_1"/>
+    <addaction name="action5_2"/>
+    <addaction name="action5_11"/>
+   </widget>
+   <widget class="QMenu" name="menu6">
+    <property name="title">
+     <string>6장예제</string>
+    </property>
+    <addaction name="action6_1"/>
+   </widget>
+   <addaction name="menu5"/>
+   <addaction name="menu6"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action5_1">
+   <property name="text">
+    <string>5-1예제</string>
+   </property>
+  </action>
+  <action name="action5_2">
+   <property name="text">
+    <string>5-2에제</string>
+   </property>
+  </action>
+  <action name="action5_11">
+   <property name="text">
+    <string>5-11예제</string>
+   </property>
+  </action>
+  <action name="action6_1">
+   <property name="text">
+    <string>카메라 히스토그램</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>cameraopen</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>camera_open()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>camera_open()</slot>
+ </slots>
+</ui>
