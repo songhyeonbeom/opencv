@@ -203,6 +203,7 @@
      <string>엣지 검출</string>
     </property>
     <addaction name="action_Edge"/>
+    <addaction name="action_edgeSW"/>
    </widget>
    <addaction name="menu5_ch"/>
    <addaction name="menu6ch"/>
@@ -247,6 +248,11 @@
   <action name="action_Edge">
    <property name="text">
     <string>엣지 영상 처리</string>
+   </property>
+  </action>
+  <action name="action_edgeSW">
+   <property name="text">
+    <string>edgeSW</string>
    </property>
   </action>
  </widget>

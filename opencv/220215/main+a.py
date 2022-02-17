@@ -17,7 +17,7 @@ from BWForm4 import BWForm
 from GTCForm5 import GTCForm
 from EDGEForm6 import EDGEForm
 from CameraHist7 import CameraHist
-
+from edgeSW import EdgeSW
 
 
 
@@ -71,6 +71,8 @@ class WindowClass(QMainWindow):
         self.action_color.triggered.connect(self.openGTCForm)
         self.action_Edge.triggered.connect(self.openEDGEForm)
         self.action_cameraYD.triggered.connect(self.openCameraHist)
+        self.action_edgeSW.triggered.connect(self.openEdgeSW)
+
 
         otherview = SecondForm(self)
         self.stackedWidget.insertWidget(1, otherview)
@@ -99,6 +101,8 @@ class WindowClass(QMainWindow):
         # camerahistview = CameraHist(self, self.th)
         # self.stackedWidget.insertWidget(7, camerahistview)
         self.stackedWidget.insertWidget(7, CameraHist(self, self.th))
+
+        self.stackedWidget.insertWidget(8, EdgeSW(self, self.th))
 
 
         canvas = FigureCanvas(Figure(figsize=(4, 3)))
@@ -144,6 +148,9 @@ class WindowClass(QMainWindow):
 
     def openCameraHist(self):
         self.stackedWidget.setCurrentIndex(7)
+
+    def openEdgeSW(self):
+        self.stackedWidget.setCurrentIndex(8)
 
     def imageread(self):
         pass

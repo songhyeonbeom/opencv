@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>826</width>
+    <height>635</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="originCam">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>291</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 1px solid black</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="edgeCam">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>270</y>
+     <width>291</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 1px solid black</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="robertsBtn">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>30</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Roberts</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="prewittBtn">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>30</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Prewitt</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sobelBtn">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>30</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Sobel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="LaplacianBtn">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>90</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Laplacian</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="log_dogBtn">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>90</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>LoG_DoG</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cannyBtn">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>90</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Canny</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>sobelBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>sobelEdgeSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>686</x>
+     <y>44</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>729</x>
+     <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cannyBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>cannyEdgeSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>688</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>688</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>sobelEdgeSlot()</slot>
+  <slot>cannyEdgeSlot()</slot>
+ </slots>
+</ui>

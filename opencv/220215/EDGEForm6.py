@@ -60,16 +60,16 @@ class EDGEForm(QWidget):
         pass
 
 
-image = cv2.imread("images/edge.jpg", cv2.IMREAD_GRAYSCALE)
-if image is None: raise Exception("영상파일 읽기 오류")
-
-data1 = [-1, 0, 1,                         # 프리윗 수직 마스크
-         -1, 0, 1,
-         -1, 0, 1]
-data2 = [-1,-1,-1,                         # 프리윗 수평 마스크
-          0, 0, 0,
-          1, 1, 1]
-dst, dst1, dst2 = differential(image, data1, data2)
+# image = cv2.imread("images/edge.jpg", cv2.IMREAD_GRAYSCALE)
+# if image is None: raise Exception("영상파일 읽기 오류")
+#
+# data1 = [-1, 0, 1,                         # 프리윗 수직 마스크
+#          -1, 0, 1,
+#          -1, 0, 1]
+# data2 = [-1,-1,-1,                         # 프리윗 수평 마스크
+#           0, 0, 0,
+#           1, 1, 1]
+# dst, dst1, dst2 = differential(image, data1, data2)
 
 
 

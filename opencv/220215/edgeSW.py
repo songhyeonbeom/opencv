@@ -5,12 +5,12 @@ from PyQt5.QtCore import QThread, pyqtSignal, Qt
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5.uic import loadUi
-from comm.filters import filter
+# from comm.filters import filter
 
-class Edge(QWidget):
+class EdgeSW(QWidget):
     def __init__(self, parent=None, thread=None):
-        super(Edge, self).__init__(parent)
-        loadUi('edge.ui', self)
+        super(EdgeSW, self).__init__(parent)
+        loadUi('edgeSW.ui', self)
         self.parent = parent
         self.thread = thread
         self.thread.changePixmap.connect(self.setImage)
