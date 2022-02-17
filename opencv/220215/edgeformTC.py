@@ -15,7 +15,7 @@ class EdgeForm(QWidget):
 
     def __init__(self, parent=None, thread=None):
         super(EdgeForm, self).__init__(parent)
-        loadUi('edgeform.ui', self)
+        loadUi('edgeformTC.ui', self)
         self.parent=parent
         self.thread=thread
         self.thread.changeEdge.connect(self.camera_connect)
