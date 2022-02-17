@@ -20,6 +20,8 @@ from CameraHist7 import CameraHist
 
 
 
+
+
 class Thread(QThread):
     changePixmap = pyqtSignal(QImage)
     changePixmapGray = pyqtSignal(QImage)
