@@ -50,6 +50,8 @@ class Thread(QThread):
                 self.changePixmapGray.emit(p2)
                 self.changeHist.emit(cvc)
 
+
+
     def test(self):
         pass
 
