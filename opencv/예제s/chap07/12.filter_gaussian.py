@@ -20,6 +20,8 @@ image = cv2.imread("images/smoothing.jpg", cv2.IMREAD_GRAYSCALE)
 if image is None: raise Exception("영상파일 읽기 오류")
 
 ksize = (5, 17)                                        # 크기는 가로x세로로 표현
+# ksize = (17, 5)                                        # 크기는 가로x세로로 표현
+
 gaussian_2d = getGaussianMask(ksize, 0, 0)
 gaussian_1dX = cv2.getGaussianKernel(ksize[0], 0, cv2.CV_32F)   # 가로 방향 마스크
 gaussian_1dY = cv2.getGaussianKernel(ksize[1], 0, cv2.CV_32F)   # 세로 방향 마스크
