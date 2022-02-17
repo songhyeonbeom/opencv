@@ -10,6 +10,8 @@ from matplotlib.figure import Figure
 from PyQt5.uic import loadUi
 
 # from FormPK import SecondForm1, SSSSForm2, RGBForm3, BWForm4, GTCForm5
+from numpy import ndarray
+
 from SecondForm1 import SecondForm
 from SSSSForm2 import SSSSForm
 from RGBForm3 import RGBForm
@@ -22,11 +24,12 @@ from edgeSW import EdgeSW
 
 
 
+
 class Thread(QThread):
     changePixmap = pyqtSignal(QImage)
     changePixmapGray = pyqtSignal(QImage)
     changeHist = pyqtSignal(QImage)
-
+    changeEdge = pyqtSignal(ndarray)
 
     def run(self):
         global cap
@@ -49,6 +52,7 @@ class Thread(QThread):
                 self.changePixmap.emit(p)
                 self.changePixmapGray.emit(p2)
                 self.changeHist.emit(cvc)
+                self.changeEdge.emit(rgbImageGray)
 
 
 
