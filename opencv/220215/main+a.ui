@@ -205,9 +205,16 @@
     <addaction name="action_Edge"/>
     <addaction name="action_edgeSW"/>
    </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>영상 회전 출력</string>
+    </property>
+    <addaction name="action_rotation"/>
+   </widget>
    <addaction name="menu5_ch"/>
    <addaction name="menu6ch"/>
    <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action5_1">
@@ -253,6 +260,11 @@
   <action name="action_edgeSW">
    <property name="text">
     <string>edgeSW</string>
+   </property>
+  </action>
+  <action name="action_rotation">
+   <property name="text">
+    <string>회전을 시켜보자</string>
    </property>
   </action>
  </widget>

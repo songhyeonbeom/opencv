@@ -34,7 +34,7 @@ image = cv2.imread('images/rotate.jpg', cv2.IMREAD_GRAYSCALE)
 if image is None: raise Exception("영상 파일을 읽기 에러")
 
 center = np.divmod(image.shape[::-1], 2)[0]
-dst1 = rotate(image, 20)                                        # 원점 기준 회전 변환
+dst1 = rotate(image, 20)                                                  # 원점 기준 회전 변환
 dst2 = rotate_pt(image, 20, center )                             # 영상 중심 기준 회전 변환
 
 cv2.imshow("image", image)

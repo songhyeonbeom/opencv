@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5.uic import loadUi
 # from comm.filters import filter
 
+
 class EdgeSW(QWidget):
     def __init__(self, parent=None, thread=None):
         super(EdgeSW, self).__init__(parent)

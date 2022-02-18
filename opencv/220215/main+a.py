@@ -8,9 +8,9 @@ import numpy as np
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from PyQt5.uic import loadUi
-
-# from FormPK import SecondForm1, SSSSForm2, RGBForm3, BWForm4, GTCForm5
 from numpy import ndarray
+# from FormPK import SecondForm1, SSSSForm2, RGBForm3, BWForm4, GTCForm5
+
 
 from SecondForm1 import SecondForm
 from SSSSForm2 import SSSSForm
@@ -20,6 +20,7 @@ from GTCForm5 import GTCForm
 from EDGEForm6 import EDGEForm
 from CameraHist7 import CameraHist
 from edgeSW import EdgeSW
+from rotation import RotationForm
 
 
 # ch5-3 RGB 확인하기
@@ -30,6 +31,7 @@ class Thread(QThread):
     changePixmapGray = pyqtSignal(QImage)
     changeHist = pyqtSignal(QImage)
     changeEdge = pyqtSignal(ndarray)
+
 
     def run(self):
         global cap
@@ -76,6 +78,7 @@ class WindowClass(QMainWindow):
         self.action_Edge.triggered.connect(self.openEDGEForm)
         self.action_cameraYD.triggered.connect(self.openCameraHist)
         self.action_edgeSW.triggered.connect(self.openEdgeSW)
+        self.action_rotation.triggered.connect(self.openRotation)
 
 
         otherview = SecondForm(self)
@@ -107,6 +110,9 @@ class WindowClass(QMainWindow):
         self.stackedWidget.insertWidget(7, CameraHist(self, self.th))
 
         self.stackedWidget.insertWidget(8, EdgeSW(self, self.th))
+
+        self.stackedWidget.insertWidget(9, RotationForm(self, self.th))
+
 
 
         canvas = FigureCanvas(Figure(figsize=(4, 3)))
@@ -155,6 +161,9 @@ class WindowClass(QMainWindow):
 
     def openEdgeSW(self):
         self.stackedWidget.setCurrentIndex(8)
+
+    def openRotation(self):
+        self.stackedWidget.setCurrentIndex(9)
 
     def imageread(self):
         pass
