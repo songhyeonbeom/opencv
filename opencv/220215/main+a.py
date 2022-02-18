@@ -22,7 +22,7 @@ from CameraHist7 import CameraHist
 from edgeSW import EdgeSW
 
 
-
+# ch5-3 RGB 확인하기
 
 
 class Thread(QThread):
