@@ -234,7 +234,7 @@
   </action>
   <action name="action_RGB">
    <property name="text">
-    <string>4번째 페이지</string>
+    <string>원본 + RGB 분리</string>
    </property>
   </action>
   <action name="action_BW">
