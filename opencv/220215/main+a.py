@@ -10,6 +10,12 @@ from matplotlib.figure import Figure
 from PyQt5.uic import loadUi
 from numpy import ndarray
 # from FormPK import SecondForm1, SSSSForm2, RGBForm3, BWForm4, GTCForm5
+from PyQt5.QtCore import QThread, pyqtSignal, Qt
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.uic import loadUi
+from PyQt5 import QtGui
+
 
 
 from SecondForm1 import SecondForm
@@ -35,27 +41,43 @@ class Thread(QThread):
     changeB = pyqtSignal(QImage)
     changeG = pyqtSignal(QImage)
     changeR = pyqtSignal(QImage)
+    changeRG = pyqtSignal(QImage)
+    changeRB = pyqtSignal(QImage)
+    changeGB = pyqtSignal(QImage)
 
 
 
 
     def run(self):
         global cap
-        cap = cv2.VideoCapture(2)
+        cap = cv2.VideoCapture(0)
         while True:
             ret, frame = cap.read()
             if ret:
                 rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                h, w, c = frame.shape
 
-                b, g, r = cv2.split(frame)
+                zeros = np.zeros((frame.shape[0], frame.shape[1]), np.uint8)
+                B, G, R = cv2.split(frame)
+
+                BH_R = cv2.merge((R, zeros, zeros))
+                BH_G = cv2.merge((zeros, G, zeros))
+                BH_B = cv2.merge((zeros, zeros, B))
+                BH_RG = cv2.merge((R, G, zeros))
+                BH_RB = cv2.merge((R, zeros, B))
+                BH_GB = cv2.merge((zeros, G, B))
+
+                R = QtGui.QImage(BH_R.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
+                G = QtGui.QImage(BH_G.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
+                B = QtGui.QImage(BH_B.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
+                RG = QtGui.QImage(BH_RG.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
+                RB = QtGui.QImage(BH_RB.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
+                GB = QtGui.QImage(BH_GB.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
+
 
                 rgbImageGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 h, w, ch = rgbImage.shape
                 bytesPerLine = ch * w
-
-
-                hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-
 
                 cvc = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
                 ctg = cvc.convertToFormat(QImage.Format_Grayscale8)
@@ -63,27 +85,12 @@ class Thread(QThread):
                 p = cvc.scaled(240, 480, Qt.KeepAspectRatio)
                 p2 = ctg.scaled(240, 480, Qt.KeepAspectRatio)
 
-                lower_blue = np.array([100,100,120])          # 파랑색 범위
-                upper_blue = np.array([150,255,255])
-
-                lower_green = np.array([50, 150, 50])        # 초록색 범위
-                upper_green = np.array([80, 255, 255])
-
-                lower_red = np.array([150, 50, 50])        # 빨강색 범위
-                upper_red = np.array([180, 255, 255])
-
-                mask = cv2.inRange(hsv, lower_blue, upper_blue)     # 110<->150 Hue(색상) 영역을 지정.
-                mask1 = cv2.inRange(hsv, lower_green, upper_green)  # 영역 이하는 모두 날림 검정. 그 이상은 모두 흰색 두개로 Mask를 씌움.
-                mask2 = cv2.inRange(hsv, lower_red, upper_red)
-
-                b = cv2.bitwise_and(frame, frame, mask=mask)
-                g = cv2.bitwise_and(frame, frame, mask=mask1)
-                r = cv2.bitwise_and(frame, frame, mask=mask2)
-
-
-                self.changeB.emit(b)
-                self.changeG.emit(g)
-                self.changeR.emit(r)
+                self.changeR.emit(R)
+                self.changeG.emit(G)
+                self.changeB.emit(B)
+                self.changeRG.emit(RG)
+                self.changeRB.emit(RB)
+                self.changeGB.emit(GB)
 
 
                 self.changePixmap.emit(p)

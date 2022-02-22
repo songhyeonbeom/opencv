@@ -34,7 +34,10 @@ class RGBForm(QWidget):
         self.thread.changeB.connect(self.setB)
         self.thread.changeG.connect(self.setG)
         self.thread.changeR.connect(self.setR)
+        self.thread.changeRB.connect(self.setRB)
+        self.thread.changeGB.connect(self.setGB)
 
+        # self.lbR.setPixmap(QPixmap.fromImage(Rimg).scaled(self.lbR.size(), Qt.KeepAspectRatio))
 
 
     def setImage(self, image):
@@ -50,12 +53,10 @@ class RGBForm(QWidget):
     def setR(self, image):
         self.label_R.setPixmap(QPixmap.fromImage(image))
 
-
-
-    def setRB(self):
+    def setRB(self, image):
         self.label_RB.setPixmap(QPixmap.fromImage(image))
 
-    def setGB(self):
+    def setGB(self, image):
         self.label_GB.setPixmap(QPixmap.fromImage(image))
 
 
