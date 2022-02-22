@@ -89,9 +89,9 @@ class WindowClass(QMainWindow):
         self.stackedWidget.insertWidget(2, sssotherview)
         # self.atackedWidget.insertWidget(2, SSSSForm(self))
 
-        rgbotherview = RGBForm(self)
-        self.stackedWidget.insertWidget(3, rgbotherview)
-        # self.stackedWidget.insertWidget(3, RGBForm(self))
+        # rgbotherview = RGBForm(self)
+        # self.stackedWidget.insertWidget(3, rgbotherview)
+        self.stackedWidget.insertWidget(3, RGBForm(self))
 
         blackwhiteview = BWForm(self)
         self.stackedWidget.insertWidget(4, blackwhiteview)

@@ -1,5 +1,12 @@
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+
+
+
+
+
 
 
 
@@ -9,12 +16,91 @@ from PyQt5.uic import loadUi
 
 
 class RGBForm(QWidget):
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, thread=None):
         super(RGBForm, self).__init__(parent)
         loadUi('mainRGB+.ui', self)
-        self.button5.clicked.connect(self.gobBackToOtherForm)
 
-    def gobBackToOtherForm(self):
-        self.parent.stackedWidget.setCurrentIndex(0)
+
+        self.parent = parent
+        self.thread = thread
+        self.thread.changePixmap.connect(self.setImage)
+
+    def setImage(self, image):
+        self.label_ORG.setPixmap(QPixmap.fromImage(image))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -6,18 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>744</width>
-    <height>651</height>
+    <width>773</width>
+    <height>679</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="label_G">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>260</y>
+     <x>290</x>
+     <y>0</y>
      <width>161</width>
      <height>161</height>
     </rect>
@@ -29,11 +29,11 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="label_ORG">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>40</y>
+     <x>290</x>
+     <y>250</y>
      <width>161</width>
      <height>161</height>
     </rect>
@@ -45,11 +45,11 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="label_B">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>260</y>
+     <x>570</x>
+     <y>20</y>
      <width>161</width>
      <height>161</height>
     </rect>
@@ -61,11 +61,11 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label_R">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>260</y>
+     <x>20</x>
+     <y>20</y>
      <width>161</width>
      <height>161</height>
     </rect>
@@ -77,17 +77,101 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="button5">
+  <widget class="QPushButton" name="button_down">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>110</y>
+     <x>330</x>
+     <y>460</y>
      <width>89</width>
      <height>25</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>DOWN</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_RB">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>470</y>
+     <width>161</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid blue</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_GB">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>470</y>
+     <width>161</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid blue</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_up">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>180</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>UP</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_le">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>310</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>LE</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_ri">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>310</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>RI</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_333">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>430</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>원위치</string>
    </property>
   </widget>
  </widget>
