@@ -67,12 +67,12 @@ class Thread(QThread):
                 BH_RB = cv2.merge((R, zeros, B))
                 BH_GB = cv2.merge((zeros, G, B))
 
-                R = QtGui.QImage(BH_R.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
-                G = QtGui.QImage(BH_G.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
-                B = QtGui.QImage(BH_B.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
-                RG = QtGui.QImage(BH_RG.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
-                RB = QtGui.QImage(BH_RB.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
-                GB = QtGui.QImage(BH_GB.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(240, 480, Qt.KeepAspectRatio)
+                R = QtGui.QImage(BH_R.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(161, 150, Qt.KeepAspectRatio)
+                G = QtGui.QImage(BH_G.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(161, 150, Qt.KeepAspectRatio)
+                B = QtGui.QImage(BH_B.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(161, 150, Qt.KeepAspectRatio)
+                RG = QtGui.QImage(BH_RG.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(161, 150, Qt.KeepAspectRatio)
+                RB = QtGui.QImage(BH_RB.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(161, 150, Qt.KeepAspectRatio)
+                GB = QtGui.QImage(BH_GB.data, w, h, w * c, QtGui.QImage.Format_RGB888).scaled(161, 150, Qt.KeepAspectRatio)
 
 
                 rgbImageGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)

@@ -60,16 +60,58 @@ class RGBForm(QWidget):
         self.label_GB.setPixmap(QPixmap.fromImage(image))
 
 
+    def edgeImage(self, image):
+        ndarry = self.qimg2nparr(image)
+        canny = cv2.Canny(ndarry, 100, 150)
+        h, w = canny.shape
+        qimg = QImage(canny.data, w, h, QImage.Format_Grayscale8)
+        self.label_CN.setPixmap(QPixmap.fromImage(qimg).scaled(self.label_CN.size(), Qt.KeepAspectRatio))
+
+    def cannyEdge(self):
+        self.thread.changePixmap.connect(self.edgeImage)
+
+
+
+    def qimg2nparr(self, qimg):
+        ''' convert rgb qimg -> cv2 bgr image '''
+        # NOTE: it would be changed or extended to input image shape
+        # Now it just used for canvas stroke.. but in the future... I don't know :(
+
+        # qimg = qimg.convertToFormat(QImage.Format_RGB32)
+        # qimg = qimg.convertToFormat(QImage.Format_RGB888)
+        h, w = qimg.height(), qimg.width()
+        print(h,w)
+        ptr = qimg.constBits()
+        ptr.setsize(h * w * 3)
+        print(h, w, ptr)
+        return np.frombuffer(ptr, np.uint8).reshape(h, w, 3)  # Copies the data
+        #return np.array(ptr).reshape(h, w, 3).astype(np.uint8)  #  Copies the data
 
 
 
 
+    def moUP(self):
+        move = self.label_ORG.geometry()
+        move.moveTop(move.y() - 10)
+        self.label_ORG.setGeometry(move)
 
+    def moDN(self):
+        move = self.label_ORG.geometry()
+        move.moveTop(move.y() + 10)
+        self.label_ORG.setGeometry(move)
 
+    def moLF(self):
+        move = self.label_ORG.geometry()
+        move.moveLeft(move.x() - 10)
+        self.label_ORG.setGeometry(move)
 
+    def moRT(self):
+        move = self.label_ORG.geometry()
+        move.moveLeft(move.x() + 10)
+        self.label_ORG.setGeometry(move)
 
-
-
+    def reSET(self):
+        self.label_ORG.setGeometry(290, 230, 161, 161)
 
 
 
