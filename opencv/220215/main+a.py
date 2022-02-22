@@ -32,6 +32,12 @@ class Thread(QThread):
     changeHist = pyqtSignal(QImage)
     changeEdge = pyqtSignal(ndarray)
 
+    changeB = pyqtSignal(QImage)
+    changeG = pyqtSignal(QImage)
+    changeR = pyqtSignal(QImage)
+
+
+
 
     def run(self):
         global cap
@@ -40,16 +46,45 @@ class Thread(QThread):
             ret, frame = cap.read()
             if ret:
                 rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
                 b, g, r = cv2.split(frame)
+
                 rgbImageGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 h, w, ch = rgbImage.shape
                 bytesPerLine = ch * w
+
+
+                hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
 
                 cvc = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
                 ctg = cvc.convertToFormat(QImage.Format_Grayscale8)
 
                 p = cvc.scaled(240, 480, Qt.KeepAspectRatio)
                 p2 = ctg.scaled(240, 480, Qt.KeepAspectRatio)
+
+                lower_blue = np.array([100,100,120])          # 파랑색 범위
+                upper_blue = np.array([150,255,255])
+
+                lower_green = np.array([50, 150, 50])        # 초록색 범위
+                upper_green = np.array([80, 255, 255])
+
+                lower_red = np.array([150, 50, 50])        # 빨강색 범위
+                upper_red = np.array([180, 255, 255])
+
+                mask = cv2.inRange(hsv, lower_blue, upper_blue)     # 110<->150 Hue(색상) 영역을 지정.
+                mask1 = cv2.inRange(hsv, lower_green, upper_green)  # 영역 이하는 모두 날림 검정. 그 이상은 모두 흰색 두개로 Mask를 씌움.
+                mask2 = cv2.inRange(hsv, lower_red, upper_red)
+
+                b = cv2.bitwise_and(frame, frame, mask=mask)
+                g = cv2.bitwise_and(frame, frame, mask=mask1)
+                r = cv2.bitwise_and(frame, frame, mask=mask2)
+
+
+                self.changeB.emit(b)
+                self.changeG.emit(g)
+                self.changeR.emit(r)
+
 
                 self.changePixmap.emit(p)
                 self.changePixmapGray.emit(p2)
@@ -91,7 +126,7 @@ class WindowClass(QMainWindow):
 
         # rgbotherview = RGBForm(self)
         # self.stackedWidget.insertWidget(3, rgbotherview)
-        self.stackedWidget.insertWidget(3, RGBForm(self))
+        self.stackedWidget.insertWidget(3, RGBForm(self, self.th))
 
         blackwhiteview = BWForm(self)
         self.stackedWidget.insertWidget(4, blackwhiteview)
