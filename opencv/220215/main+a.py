@@ -17,7 +17,6 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtGui
 
 
-
 from SecondForm1 import SecondForm
 from SSSSForm2 import SSSSForm
 from RGBForm3 import RGBForm
@@ -45,6 +44,7 @@ class Thread(QThread):
     changeRB = pyqtSignal(QImage)
     changeGB = pyqtSignal(QImage)
 
+    recordFrame = pyqtSignal(np.ndarray)
 
 
 
@@ -53,6 +53,8 @@ class Thread(QThread):
         cap = cv2.VideoCapture(0)
         while True:
             ret, frame = cap.read()
+            self.recordFrame.emit(frame)
+
             if ret:
                 rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 h, w, c = frame.shape
@@ -177,6 +179,11 @@ class WindowClass(QMainWindow):
         # image_canvas.imshow()
 
 
+        self.pushbutton_SAVE.setCheckable(True)
+        self.pushbutton_SAVE.clicked.connect(self.recstart)
+
+
+
     def openMainForm(self):
         self.stackedWidget.setCurrentIndex(0)
 
@@ -227,10 +234,29 @@ class WindowClass(QMainWindow):
         self.originvideo_2.setPixmap(QPixmap.fromImage(image))
 
     def Camera_Open(self):
-
         self.th.changePixmap.connect(self.setImage)
         self.th.changePixmapGray.connect(self.setImageGray)
         self.th.start()
+
+    def recstart(self, state):
+        global writer
+        if state:
+            fps = 29.97
+            size = (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))
+            delay = round(1000 / fps)
+            fourcc = cv2.VideoWriter_fourcc(*'XVID')
+            writer = cv2.VideoWriter('test.avi', fourcc, fps, size)
+            self.th.recordFrame.connect(self.recording)
+        else:
+            writer.release()
+            self.th.recordFrame.disconnect(self.recording)
+            print('Recording Stop')
+
+    def recording(self, frame):
+        writer.write(frame)
+        print('Recording.')
+        print('Recording..')
+        print('Recording...')
 
     def Camera_close(self):
         pass
@@ -251,6 +277,12 @@ class WindowClass(QMainWindow):
         pixmap = QPixmap.fromImage(img)
         self.graychange.setPixmap(pixmap)
         self.graychange.setScaledContents(True)
+
+
+
+
+
+
 
 
 

@@ -164,6 +164,19 @@
        <string>변환</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushbutton_SAVE">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>270</y>
+        <width>121</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>저장버튼</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_5"/>
     <widget class="QWidget" name="page_6"/>
@@ -334,11 +347,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushbutton_SAVE</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>recstart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>396</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>Camera_Open()</slot>
   <slot>Camera_close()</slot>
   <slot>display_image()</slot>
   <slot>convert_to_gray()</slot>
+  <slot>recstart()</slot>
  </slots>
 </ui>
