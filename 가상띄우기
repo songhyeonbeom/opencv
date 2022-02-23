@@ -1,0 +1,27 @@
+cd TensorFlow2
+source venv-tf/bin/activate
+
+가상 띄우기
+
+cd 080263/
+
+jupyter-notebook
+
+
+
+
+
+
+파이참 열기
+
+~/pycharm/bin$ ./pycharm.sh 
+
+
+
+
+song@GL502VMK:~/git/openCV/TensorFlow2/080263$ ~/git/openCV/TensorFlow2/venv-tf/bin/jupyter-notebook 
+
+
+
+
+
