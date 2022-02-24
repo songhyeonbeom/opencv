@@ -19,7 +19,12 @@ jupyter-notebook
 
 
 
-song@GL502VMK:~/git/openCV/TensorFlow2/080263$ ~/git/openCV/TensorFlow2/venv-tf/bin/jupyter-notebook 
+
+주피터 띄울 폴더 경로 들어가기.
+cd git/openCV/TensorFlow2/080263/
+
+주피터 바로 띄우기.
+~/git/openCV/TensorFlow2/venv-tf/bin/jupyter-notebook 
 
 
 
