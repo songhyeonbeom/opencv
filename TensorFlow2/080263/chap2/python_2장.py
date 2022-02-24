@@ -9,7 +9,7 @@ import numpy as np
 import tensorflow as tf
 
 import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
+# get_ipython().run_line_magic('matplotlib', 'inline')
 
 import seaborn as sns
 sns.set(style="darkgrid")
@@ -32,7 +32,7 @@ plt.rcParams["figure.figsize"] = plot_size
 cars.output.value_counts().plot(kind='pie', autopct='%0.05f%%', 
                                 colors=['lightblue', 'lightgreen', 'orange', 'pink'], 
                                 explode=(0.05, 0.05, 0.05,0.05))
-
+plt.show()
 
 # In[4]:
 
