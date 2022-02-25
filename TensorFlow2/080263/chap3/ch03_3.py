@@ -17,6 +17,9 @@ for index, (image, label) in enumerate(zip(digits.data[0:5], digits.target[0:5])
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(digits.data, digits.target, test_size=0.25, random_state=0)
 
+
+# LogisticRegression 북마크 해놓은 유튜브 영상 참조
+# 텐서플로 폴더 _ COMP824 컴퓨터비젼특강 03강 Cross Entropy Loss 추가설명
 from sklearn.linear_model import LogisticRegression
 logisticRegr = LogisticRegression(solver='liblinear')
 logisticRegr.fit(x_train, y_train)
