@@ -161,6 +161,12 @@ model.fit(X_train, y_train)
 y_predict = model.predict(X_test)
 from sklearn.metrics import accuracy_score
 accuracy_score(y_test, y_predict)
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn import metrics
+names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'Class']
+dataset = pd.read_csv('../chap3/data/iris.data', names=names)
 
 
 # In[19]:
