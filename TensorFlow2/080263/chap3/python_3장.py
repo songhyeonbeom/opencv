@@ -183,7 +183,7 @@ pd.DataFrame(
 # In[21]:
 
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+# get_ipython().run_line_magic('matplotlib', 'inline')
 from sklearn.datasets import load_digits
 digits = load_digits()
 print("Image Data Shape" , digits.data.shape)
